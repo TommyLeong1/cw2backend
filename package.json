@@ -12,7 +12,8 @@
     "@types/node": "^18.0.6",
     "express": "^4.18.2",
     "node-fetch": "^3.2.6",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "validator": "^13.9.0"
   },
   "repository": {
     "type": "git",
