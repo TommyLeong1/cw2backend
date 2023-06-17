@@ -1,7 +1,11 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 8000
+require("./DBconnection/conn")
 
-app.listen(port, () => {
-  console.log('connection is setup at Port $(port)')
-})
+app.get("/", (req,res)=> {
+  res.send("I'm inside the home");
+});
+
+app.get("/posts", (req,res)=> {
+  res.send("I'm inside the posts  ");
+});
