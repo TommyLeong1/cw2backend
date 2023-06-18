@@ -262,7 +262,7 @@ router.post('/', async (req, res) => {
 
 //----------------------------------------------------
 
-//get a specific admin
+//get a specific admin--------------------------------
 router.get("/:adminId", async (req, res) => {
   try {
     // findById() -> get data by id
@@ -288,7 +288,7 @@ router.get("/:adminId", async (req, res) => {
   }
 });
 
-//get a specific employee
+//get a specific employee-----------------------------
 router.get("/:employeeId", async (req, res) => {
   try {
     // findById() -> get data by id
@@ -314,7 +314,7 @@ router.get("/:employeeId", async (req, res) => {
   }
 });
 
-//get a specific user
+//get a specific user--------------------------------
 router.get("/:userId", async (req, res) => {
   try {
     // findById() -> get data by id
@@ -340,7 +340,7 @@ router.get("/:userId", async (req, res) => {
   }
 });
 
-//get a specific catpost
+//get a specific catpost------------------------------
 router.get("/:catpostId", async (req, res) => {
   try {
     // findById() -> get data by id
@@ -368,7 +368,7 @@ router.get("/:catpostId", async (req, res) => {
 
 //----------------------------------------------------
 
-//Update a admin
+//Update a admin--------------------------------------
 router.patch("/:adminId", async (req, res) => {
   try {
     // updateOne() -> update data by id
@@ -407,7 +407,7 @@ router.patch("/:adminId", async (req, res) => {
   }
 });
 
-//Update a employee
+//Update a employee-----------------------------------
 router.patch("/:employeeId", async (req, res) => {
   try {
     // updateOne() -> update data by id
@@ -446,7 +446,7 @@ router.patch("/:employeeId", async (req, res) => {
   }
 });
 
-//Update a user
+//Update a user---------------------------------------
 router.patch("/:userId", async (req, res) => {
   try {
     // updateOne() -> update data by id
@@ -485,7 +485,7 @@ router.patch("/:userId", async (req, res) => {
   }
 });
 
-//Update a catpost
+//Update a catpost------------------------------------
 router.patch("/:catpostId", async (req, res) => {
   try {
     // updateOne() -> update data by id
@@ -530,7 +530,7 @@ router.patch("/:catpostId", async (req, res) => {
 
 //----------------------------------------------------
 
-//Delete a admin
+//Delete a admin--------------------------------------
 router.delete("/:adminId", async (req, res) => {
   try {
     // deleteOne() -> delete data by id
@@ -557,7 +557,7 @@ router.delete("/:adminId", async (req, res) => {
   }
 });
 
-//Delete a employee
+//Delete a employee-----------------------------------
 router.delete("/:employeeId", async (req, res) => {
   try {
     // deleteOne() -> delete data by id
@@ -584,7 +584,7 @@ router.delete("/:employeeId", async (req, res) => {
   }
 });
 
-//Delete a user
+//Delete a user---------------------------------------
 router.delete("/:userId", async (req, res) => {
   try {
     // deleteOne() -> delete data by id
@@ -611,7 +611,7 @@ router.delete("/:userId", async (req, res) => {
   }
 });
 
-//Delete a catpost
+//Delete a catpost------------------------------------
 router.delete("/:catpostId", async (req, res) => {
   try {
     // deleteOne() -> delete data by id
