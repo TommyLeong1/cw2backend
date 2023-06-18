@@ -40,9 +40,7 @@ const EmployeeSchema = mongoose.Schema({
     type:String
   },
   signUpCode: {
-    type:String,
-    required: true,
-    unique:[true, "this sign up code is already exist"]
+    type:String    
   },
 });
 

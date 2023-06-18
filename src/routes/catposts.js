@@ -38,7 +38,6 @@ router.post('/', async (req, res) => {
   const catposts = await new CatPost({
     id: req.body.id,
     title: req.body.title,
-    username: req.body.username,
     fullText: req.body.fullText,
     description: req.body.description,
     comments: req.body.comments,

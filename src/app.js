@@ -6,6 +6,14 @@ const bodyParser = require('body-parser')
 //middle ware
 app.use(bodyParser.json())
 
+//Access-Control-Allow-Origin
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://cw2frontend.tommyleong1.repl.co');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 //import the route
 const adminRoute = require("./routes/admins");
 const employeeRoute = require("./routes/employees");
@@ -18,13 +26,9 @@ app.use("/employees", employeeRoute);
 app.use("/users", userRoute);
 app.use("/catposts", catpostRoute);
 
-//Homepage
+//Restful api Homepage
 app.get("/", (req,res)=> {
-  res.send("Homepage");
-});
-
-app.get("/posts", (req,res)=> {
-  res.send("I'm inside the posts  ");
+  res.send("Restful api Homepage");
 });
 
 app.listen();
