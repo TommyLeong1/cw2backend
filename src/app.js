@@ -8,10 +8,13 @@ app.use(bodyParser.json())
 
 //import the route
 const postRoute = require("./routes/posts");
-
-app.use("/posts", postRoute);
+const employeeRoute = require("./routes/employees");
 
 //routes
+app.use("/posts", postRoute);
+app.use("/employees", employeeRoute);
+
+//Homepage
 app.get("/", (req,res)=> {
   res.send("Homepage");
 });
