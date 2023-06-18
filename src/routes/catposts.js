@@ -1,26 +1,26 @@
 const express = require("express");
 const router = express.Router();
 
-const Employee = require("../model/Employee");
+const CatPost = require("../model/CatPost");
 
-//employee permission
+//Catpost permission----------------------------------
 //----------------------------------------------------
 
-//get all the employee
+//Get all the catpost---------------------------------
 router.get("/", async (req, res) => {
   try {
     // find() -> get all data
-    const employees = await Employee.find();
-    if(!employees){
+    const catposts = await CatPost.find();
+    if(!catposts){
       res.json({
       status:"400",
-      message:"Found employee records FAILED"
+      message:"Found catpost records FAILED"
     })
     }else{
       res.json({
       status:"200",
-      message:"Found employee records SUCCESSFULLY",
-      data:employees
+      message:"Found catpost records SUCCESSFULLY",
+      data:catposts
     })
     }
   } catch (err) {
@@ -31,33 +31,37 @@ router.get("/", async (req, res) => {
   }
 });
 
-//save a employee(register)
+//----------------------------------------------------
+
+//Save a catpost--------------------------------------
 router.post('/', async (req, res) => {
-  const employees = await new Employee({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+  const catposts = await new CatPost({
+    id: req.body.id,
+    title: req.body.title,
     username: req.body.username,
-    about: req.body.about,
-    dateRegistered: req.body.dateRegistered,
-    password: req.body.password,
-    passwordSalt: req.body.passwordSalt,
-    email: req.body.email,
-    avatarURL: req.body.avatarURL,
-    signUpCode: req.body.signUpCode
+    fullText: req.body.fullText,
+    description: req.body.description,
+    comments: req.body.comments,
+    likes: req.body.likes,
+    imgURL: req.body.imgURL,
+    summary: req.body.summary,
+    dateCreated: req.body.dateCreated,
+    dateModified: req.body.dateModified,
+    breed: req.body.breed,
   });
 
   try {
-    const savedEmployee = await employees.save();
-    if(!savedEmployee){
+    const savedCatPost = await catposts.save();
+    if(!savedCatPost){
       res.json({
       status:"400",
-      message:"Save employee FAILED"
+      message:"Save catpost FAILED"
     })
     }else{
       res.json({
       status:"200",
-      message:"Save employee SUCCESSFULLY",
-      data:savedEmployee
+      message:"Save catpost SUCCESSFULLY",
+      data:savedCatPost
     })
     }
   } catch (err) {
@@ -68,22 +72,24 @@ router.post('/', async (req, res) => {
   }  
 });
 
-//get a specific employee
-router.get("/:employeeId", async (req, res) => {
+//----------------------------------------------------
+
+//Get a specific catpost------------------------------
+router.get("/:catpostId", async (req, res) => {
   try {
     // findById() -> get data by id
-    const employees = await       
-    Employee.findById(req.params.employeeId);
-    if(!employees){
+    const catposts = await       
+    CatPost.findById(req.params.catpostId);
+    if(!catposts){
       res.json({
       status:"400",
-      message:"Found employee record FAILED"
+      message:"Found catpost record FAILED"
     })
     }else{
       res.json({
       status:"200",
-      message:"Found employee record SUCCESSFULLY",
-      data:employees
+      message:"Found catpost record SUCCESSFULLY",
+      data:catposts
     })
     }
   } catch (err) {
@@ -94,35 +100,41 @@ router.get("/:employeeId", async (req, res) => {
   }
 });
 
-//Update a employee
-router.patch("/:employeeId", async (req, res) => {
+//----------------------------------------------------
+
+//Update a catpost------------------------------------
+router.patch("/:catpostId", async (req, res) => {
   try {
     // updateOne() -> update data by id
-    const updateEmployee = await Employee.updateOne(
-      {_id :req.params.employeeId},
+    const updateCatPost = await CatPost.updateOne(
+      {_id :req.params.catpostId},
       {
         $set : {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        id: req.body.id,
+        title: req.body.title,
         username: req.body.username,
-        about: req.body.about,
-        password: req.body.password,
-        passwordSalt: req.body.passwordSalt,
-        email: req.body.email,
-        avatarURL: req.body.avatarURL
+        fullText: req.body.fullText,
+        description: req.body.description,
+        comments: req.body.comments,
+        likes: req.body.likes,
+        imgURL: req.body.imgURL,
+        summary: req.body.summary,
+        dateCreated: req.body.dateCreated,
+        dateModified: req.body.dateModified,
+        breed: req.body.breed,
         },
       }
     );
-    if(!updateEmployee){
+    if(!updateCatPost){
       res.json({
       status:"400",
-      message:"Update employee record FAILED"
+      message:"Update catpost record FAILED"
     })
     }else{
       res.json({
       status:"200",
-      message:"Update employee record SUCCESSFULLY",
-      data:updateEmployee
+      message:"Update catpost record SUCCESSFULLY",
+      data:updateCatPost
     })
     }
   } catch (err) {
@@ -133,23 +145,25 @@ router.patch("/:employeeId", async (req, res) => {
   }
 });
 
-//Delete a employee
-router.delete("/:employeeId", async (req, res) => {
+//----------------------------------------------------
+
+//Delete a catpost------------------------------------
+router.delete("/:catpostId", async (req, res) => {
   try {
     // deleteOne() -> delete data by id
-    const deleteEmployee = await Employee.deleteOne(
-      {_id :req.params.employeeId}
+    const deleteCatPost = await CatPost.deleteOne(
+      {_id :req.params.catpostId}
     );
-    if(!deleteEmployee){
+    if(!deleteCatPost){
       res.json({
       status:"400",
-      message:"Delete employee record FAILED"
+      message:"Delete catpost record FAILED"
     })
     }else{
       res.json({
       status:"200",
-      message:"Delete employee record SUCCESSFULLY",
-      data:deleteEmployee
+      message:"Delete catpost record SUCCESSFULLY",
+      data:deleteCatPost
     })
     }
   } catch (err) {
@@ -159,5 +173,7 @@ router.delete("/:employeeId", async (req, res) => {
     });
   }
 });
+
+//----------------------------------------------------
 
 module.exports = router;
