@@ -6,10 +6,10 @@ const Employee = require("../model/Employee");
 const User = require("../model/User");
 const CatPost = require("../model/CatPost");
 
-//admin permission------------------------------------
+//Admin permission------------------------------------
 //----------------------------------------------------
 
-//get all the admin-----------------------------------
+//Get all the admin-----------------------------------
 router.get("/", async (req, res) => {
   try {
     // find() -> get all data
@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//get all the employee--------------------------------
+//Get all the employee--------------------------------
 router.get("/", async (req, res) => {
   try {
     // find() -> get all data
@@ -59,7 +59,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//get all the user------------------------------------
+//Get all the user------------------------------------
 router.get("/", async (req, res) => {
   try {
     // find() -> get all data
@@ -84,7 +84,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//get all the catpost---------------------------------
+//Get all the catpost---------------------------------
 router.get("/", async (req, res) => {
   try {
     // find() -> get all data
@@ -111,7 +111,7 @@ router.get("/", async (req, res) => {
 
 //----------------------------------------------------
 
-//save a admin(register)------------------------------
+//Save a admin(register)------------------------------
 router.post('/', async (req, res) => {
   const admins = await new Admin({
     firstName: req.body.firstName,
@@ -148,7 +148,7 @@ router.post('/', async (req, res) => {
   }  
 });
 
-//save a employee(register)---------------------------
+//Save a employee(register)---------------------------
 router.post('/', async (req, res) => {
   const employees = await new Employee({
     firstName: req.body.firstName,
@@ -185,7 +185,7 @@ router.post('/', async (req, res) => {
   }  
 });
 
-//save a user(register)-------------------------------
+//Save a user(register)-------------------------------
 router.post('/', async (req, res) => {
   const users = await new User({
     firstName: req.body.firstName,
@@ -221,7 +221,7 @@ router.post('/', async (req, res) => {
   }  
 });
 
-//save a catpost--------------------------------------
+//Save a catpost--------------------------------------
 router.post('/', async (req, res) => {
   const catposts = await new CatPost({
     id: req.body.id,
@@ -262,7 +262,7 @@ router.post('/', async (req, res) => {
 
 //----------------------------------------------------
 
-//get a specific admin--------------------------------
+//Get a specific admin--------------------------------
 router.get("/:adminId", async (req, res) => {
   try {
     // findById() -> get data by id
@@ -288,7 +288,7 @@ router.get("/:adminId", async (req, res) => {
   }
 });
 
-//get a specific employee-----------------------------
+//Get a specific employee-----------------------------
 router.get("/:employeeId", async (req, res) => {
   try {
     // findById() -> get data by id
@@ -314,7 +314,7 @@ router.get("/:employeeId", async (req, res) => {
   }
 });
 
-//get a specific user--------------------------------
+//Get a specific user--------------------------------
 router.get("/:userId", async (req, res) => {
   try {
     // findById() -> get data by id
@@ -340,7 +340,7 @@ router.get("/:userId", async (req, res) => {
   }
 });
 
-//get a specific catpost------------------------------
+//Get a specific catpost------------------------------
 router.get("/:catpostId", async (req, res) => {
   try {
     // findById() -> get data by id
