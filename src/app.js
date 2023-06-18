@@ -7,12 +7,16 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 //import the route
-const postRoute = require("./routes/posts");
+const adminRoute = require("./routes/admins");
 const employeeRoute = require("./routes/employees");
+const userRoute = require("./routes/users");
+const catpostRoute = require("./routes/catposts");
 
 //routes
-app.use("/posts", postRoute);
+app.use("/admins", adminRoute);
 app.use("/employees", employeeRoute);
+app.use("/users", userRoute);
+app.use("/catposts", catpostRoute);
 
 //Homepage
 app.get("/", (req,res)=> {
