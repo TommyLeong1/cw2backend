@@ -50,6 +50,17 @@ router.patch("/:postId", async (req, res) => {
         $set : {
         title: req.body.title,
         description: req.body.description,
+          id: 
+  title:
+  fullText:
+  description:
+  comments:
+  likes:
+  imgURL:
+  summary:
+  dateCreated:
+  dateModified: 
+  breed:
         },
       }
     );
