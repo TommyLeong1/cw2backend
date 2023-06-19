@@ -40,7 +40,8 @@ const EmployeeSchema = mongoose.Schema({
     type:String
   },
   signUpCode: {
-    type:String    
+    type:String,
+    required: true,
   },
 });
 

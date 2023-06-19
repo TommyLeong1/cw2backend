@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 //Access-Control-Allow-Origin
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://cw2frontend.tommyleong1.repl.co');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
@@ -19,12 +19,14 @@ const adminRoute = require("./routes/admins");
 const employeeRoute = require("./routes/employees");
 const userRoute = require("./routes/users");
 const catpostRoute = require("./routes/catposts");
+const loginRoute = require("./routes/login");
 
 //routes
 app.use("/admins", adminRoute);
 app.use("/employees", employeeRoute);
 app.use("/users", userRoute);
 app.use("/catposts", catpostRoute);
+app.use("/login", loginRoute);
 
 //Restful api Homepage
 app.get("/", (req,res)=> {

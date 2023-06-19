@@ -123,7 +123,7 @@ router.post('/', async (req, res) => {
     passwordSalt: req.body.passwordSalt,
     email: req.body.email,
     avatarURL: req.body.avatarURL,
-    signUpCode: req.body.signUpCode
+    signUpCode: req.body.signUpCode,
   });
 
   try {
@@ -160,7 +160,7 @@ router.post('/', async (req, res) => {
     passwordSalt: req.body.passwordSalt,
     email: req.body.email,
     avatarURL: req.body.avatarURL,
-    signUpCode: req.body.signUpCode
+    signUpCode: req.body.signUpCode,
   });
 
   try {

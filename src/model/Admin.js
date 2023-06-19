@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require('validator');
 
+
 const AdminSchema = mongoose.Schema({
   firstName: {
     type:String
@@ -40,8 +41,10 @@ const AdminSchema = mongoose.Schema({
     type:String
   },
   signUpCode: {
-    type:String
+    type:String,
+    required: true,
   },
 });
+
 
 module.exports = mongoose.model("Admin", AdminSchema)
