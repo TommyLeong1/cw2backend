@@ -38,6 +38,7 @@ router.post('/', async (req, res) => {
   const masboards = await new MASboard({
     mas: req.body.mas,
     username: req.body.username,
+    reply:req.body.reply,
   });
 
   try {
@@ -102,6 +103,7 @@ router.patch("/:masboardsId", async (req, res) => {
         $set : {
         mas: req.body.mas,
         username: req.body.username,
+        reply:req.body.reply,
         },
       }
     );

@@ -279,7 +279,7 @@ router.delete("/:userId", async (req, res) => {
   try {
     // deleteOne() -> delete data by id
     const deleteUser = await User.deleteOne(
-      {_id :req.params.employeeId}
+      {_id :req.params.userId}
     );
     if(!deleteUser){
       res.json({
