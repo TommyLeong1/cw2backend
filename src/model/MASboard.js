@@ -11,6 +11,10 @@ const MASboardSchema = mongoose.Schema({
     required: true,
     unique:[true, "this username is already exist"]
   },
+  reply: {
+    type:String,
+    default:"waiting for reply..."
+  },
 });
 
 
