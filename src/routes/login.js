@@ -2,26 +2,38 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const Admin = require('../models/Admin');
+const Admin = require("../model/Admin");
+const Employee = require("../model/Employee");
+const User = require("../model/User");
 
 router.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, role } = req.body;
 
   try {
-    // 查找匹配的管理员
-    const admin = await Admin.findOne({ username });
-    if (!admin) {
-      return res.status(401).json({ message: 'Invalid username or password' });
+    let user;
+
+    // 根据角色查找用户
+    switch (role) {
+      case 'admin':
+        user = await Admin.findOne({ username });
+        break;
+      case 'employee':
+        user = await Employee.findOne({ username });
+        break;
+      case 'user':
+        user = await User.findOne({ username });
+        break;
+      default:
+        return res.status(401).json({ message: 'Invalid role' });
     }
 
-    // 验证密码
-    const isMatch = await bcrypt.compare(password, admin.password);
-    if (!isMatch) {
+    // 验证用户和密码
+    if (!user || !await bcrypt.compare(password, user.password)) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
 
     // 生成 JWT token
-    const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: user._id, role }, process.env.JWT_SECRET);
 
     res.json({ token });
   } catch (error) {

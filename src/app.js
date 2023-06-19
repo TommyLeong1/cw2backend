@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors');
 const app = express()
 require("./DBconnection/conn")
 const bodyParser = require('body-parser')
@@ -7,6 +8,8 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 //Access-Control-Allow-Origin
+app.use(cors());
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://cw2frontend.tommyleong1.repl.co');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
