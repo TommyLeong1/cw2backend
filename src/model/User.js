@@ -39,6 +39,11 @@ const UserSchema = mongoose.Schema({
   avatarURL: {
     type:String
   },
+  role: {
+    type:String,
+    required: true,
+    default : "user",
+  },
 });
 
 module.exports = mongoose.model("User", UserSchema)
